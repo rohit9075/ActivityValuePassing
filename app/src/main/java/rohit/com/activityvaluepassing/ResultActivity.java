@@ -16,13 +16,13 @@ public class ResultActivity extends AppCompatActivity  {
 
 
 
-        mFiresName =(TextView) findViewById(R.id.first_name_result);
-        mLastName = (TextView) findViewById(R.id.last_name_result);
+        mFiresName = findViewById(R.id.first_name_result);
+        mLastName =  findViewById(R.id.last_name_result);
 
         Bundle mResultBundle = getIntent().getExtras();
 
-        mFiresName.setText(mResultBundle.getCharSequence("Fname"));
-        mLastName.setText(mResultBundle.getCharSequence("Lname"));
+        mFiresName.setText(mResultBundle.getString("Fname"));
+        mLastName.setText(mResultBundle.getString("Lname"));
 
     }
 }

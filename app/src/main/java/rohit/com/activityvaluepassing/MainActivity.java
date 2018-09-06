@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText mFirstName , mLastName;
     Button mSendData;
-    String mFname , mLname;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLastName = findViewById(R.id.last_name);
         mSendData = findViewById( R.id.send_data);
 
-        mFirstName.setOnClickListener(this);
-        mLastName.setOnClickListener(this);
         mSendData.setOnClickListener(this);
 
 
@@ -52,9 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mResultIntent.putExtras(mBundle);
 
             startActivity(mResultIntent);
-
-
-
 
         }
     }
