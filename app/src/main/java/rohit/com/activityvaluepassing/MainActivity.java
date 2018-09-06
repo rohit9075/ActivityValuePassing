@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText mFirstName , mLastName;
-    Button mSendData;
+    Button mSendDataUsingBundle, mSendDataUsingIntnet;
 
 
     @Override
@@ -20,9 +20,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mFirstName = findViewById(R.id.first_name);
         mLastName = findViewById(R.id.last_name);
-        mSendData = findViewById( R.id.send_data);
+        mSendDataUsingBundle = findViewById( R.id.send_data_using_bundle);
+        mSendDataUsingIntnet = findViewById( R.id.send_data_using_intent);
 
-        mSendData.setOnClickListener(this);
+        mSendDataUsingIntnet.setOnClickListener(this);
+        mSendDataUsingBundle.setOnClickListener(this);
 
 
     }
@@ -30,27 +32,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+        switch (v.getId()){
+            case  R.id.send_data_using_bundle:
+                sendUsingBundle();
+                break;
+            case R.id.send_data_using_intent:
+                usignIntent();
+                break;
+        }
+
+    }
+
+    /**
+     * method to send data to activity using intent
+     */
+
+    private void usignIntent() {
         Intent mResultIntent = new Intent(getApplicationContext() , ResultActivity.class);
-        Bundle mBundle = new Bundle();
 
+        String mFname, mLname;
 
-        if (v.getId() == R.id.send_data) {
-            String mFname, mLname;
-
-            mFname = mFirstName.getText().toString();
-            mLname = mLastName.getText().toString();
+        mFname = mFirstName.getText().toString();
+        mLname = mLastName.getText().toString();
 
 //Inserts a String value into the mapping of this Bundle
 
-            mBundle.putString("Fname" , mFname);
-            mBundle.putString("Lname" , mLname);
+        mResultIntent.putExtra("Fname" , mFname);
+        mResultIntent.putExtra("Lname" , mLname);
 
 //Add the bundle to the intent.
 
-            mResultIntent.putExtras(mBundle);
+        startActivity(mResultIntent);
+    }
 
-            startActivity(mResultIntent);
 
-        }
+    /**
+     * method to send data using bundle
+     */
+    private void sendUsingBundle() {
+        Intent mResultIntent = new Intent(getApplicationContext() , ResultActivity.class);
+        Bundle mBundle = new Bundle();
+
+        String mFname, mLname;
+
+        mFname = mFirstName.getText().toString();
+        mLname = mLastName.getText().toString();
+
+//Inserts a String value into the mapping of this Bundle
+
+        mBundle.putString("FnameBundle" , mFname);
+        mBundle.putString("LnameBundle" , mLname);
+
+//Add the bundle to the intent.
+
+        mResultIntent.putExtras(mBundle);
+        startActivity(mResultIntent);
     }
 }

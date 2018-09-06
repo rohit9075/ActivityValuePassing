@@ -30,11 +30,22 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/send_data"
+        android:id="@+id/send_data_using_intent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/last_name"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
-        android:text="send data" />
+        android:layout_marginTop="232dp"
+        android:text="Using Intent" />
+
+    <Button
+        android:id="@+id/send_data_using_bundle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="256dp"
+        android:text="Using Bundle" />
+
+
 </RelativeLayout>

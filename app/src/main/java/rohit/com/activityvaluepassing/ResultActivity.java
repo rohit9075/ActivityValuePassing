@@ -6,8 +6,8 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity  {
 
-    TextView mFiresName;
-    TextView mLastName;
+    TextView mFirstNameIntent, mFirstNameBundle;
+    TextView mLastNameIntent, mLastNameBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +16,26 @@ public class ResultActivity extends AppCompatActivity  {
 
 
 
-        mFiresName = findViewById(R.id.first_name_result);
-        mLastName =  findViewById(R.id.last_name_result);
+        mFirstNameIntent = findViewById(R.id.first_name_result_intent);
+        mLastNameIntent =  findViewById(R.id.last_name_result_intent);
+
+
+        mFirstNameBundle = findViewById(R.id.first_name_result_bundle);
+        mLastNameBundle =  findViewById(R.id.last_name_result_bundle);
 
         Bundle mResultBundle = getIntent().getExtras();
 
-        mFiresName.setText(mResultBundle.getString("Fname"));
-        mLastName.setText(mResultBundle.getString("Lname"));
+        if (mResultBundle != null){
+
+            mFirstNameIntent.setText(mResultBundle.getString("FnameBundle"));
+            mLastNameIntent.setText(mResultBundle.getString("LnameBundle"));
+
+
+        }
+
+
+        mFirstNameBundle.setText(getIntent().getStringExtra("Fname"));
+        mLastNameBundle.setText(getIntent().getStringExtra("Lname"));
 
     }
 }

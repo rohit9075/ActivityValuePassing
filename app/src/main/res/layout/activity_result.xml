@@ -1,27 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    android:orientation="vertical"
     tools:context="rohit.com.activityvaluepassing.ResultActivity">
 
 
-    <TextView
-        android:id="@+id/first_name_result"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="73dp"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView_heading_Bundle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:text="Data Using Bundle" />
+
+
+    <TextView
+        android:id="@+id/first_name_result_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:gravity="center" />
 
 
     <TextView
-        android:id="@+id/last_name_result"
+        android:id="@+id/last_name_result_intent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/first_name_result"
-        android:layout_below="@+id/first_name_result"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="24dp"
         android:gravity="center" />
-</RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView_heading_bundle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:text="Data Using Intnet" />
+
+
+        <TextView
+            android:id="@+id/first_name_result_bundle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:gravity="center" />
+
+
+        <TextView
+            android:id="@+id/last_name_result_bundle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>
